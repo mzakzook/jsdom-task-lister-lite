@@ -16,7 +16,19 @@ function addComments() {
     const commentsContainer = document.querySelector('#tasks');
     const newComment = document.createElement('li');
     newComment.textContent = userInputField.value;
+    // newComment.appendChild(button)
     commentsContainer.appendChild(newComment);
+
+    const button = document.createElement('button');
+    button.textContent = 'X';
+    button.style.marginLeft = "50px";
+    newComment.appendChild(button);
+    
+
+    button.addEventListener('click', function(event){
+      event.target.parentElement.remove()
+    })
+
 
     userInputField.value = '';
     userInputField.focus();
@@ -26,3 +38,4 @@ function addComments() {
     // commentsContainer.innerHTML += `<p>${userInputField.value}</p>`
   });
 }
+
